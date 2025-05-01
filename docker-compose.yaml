@@ -1,0 +1,14 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+      - 9229:9229
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    environment:
+      - DJANGO_SETTINGS_MODULE=efidu.settings
+    command: ['python', 'manage.py', 'runserver', '0.0.0.0:4000', '--noreload']
