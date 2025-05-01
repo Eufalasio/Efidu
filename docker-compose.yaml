@@ -12,3 +12,15 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=efidu.settings
     command: ['python', 'manage.py', 'runserver', '0.0.0.0:4000']
+
+  frontend:
+    build:
+      context: ./frontend/efidu-fe
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+      - 9228:9228
+    volumes:
+      - ./efidu-fe:/app
+      - /app/node_modules
+    command: 'npx expo start'
