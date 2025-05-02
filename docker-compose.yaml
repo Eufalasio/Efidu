@@ -18,9 +18,15 @@ services:
       context: ./frontend/efidu-fe
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
-      - 9228:9228
+      - 19000:19000
+      - 19001:19001
+      - 19002:19002
     volumes:
-      - ./efidu-fe:/app
+      - ./frontend/efidu-fe:/app
       - /app/node_modules
+    environment:
+      - RCT_METRO_PORT=19000
+      - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.56.1
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+    working_dir: /app
     command: 'npx expo start'
