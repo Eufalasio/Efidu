@@ -1,9 +1,10 @@
+import { Stack } from 'expo-router';
 import { ImageBackground, View } from 'react-native';
 
-const StudentLayout = ({ children }) => {
+const StudentLayout = () => {
 	return (
-		<View className='flex-1 w-full h-full flex-row justify-start items-start'>
-			<View className='w-1/2 h-full justify-start items-start'>
+		<View className='flex-row w-full h-full justify-center items-center'>
+			<View className='w-1/2 h-full'>
 				<ImageBackground
 					source={require('../../../assets/student2.png')}
 					style={{
@@ -14,7 +15,18 @@ const StudentLayout = ({ children }) => {
 					}}
 				/>
 			</View>
-			<View className='w-1/2 h-full justify-center items-center'></View>
+			<View className='w-1/2 h-[100%]'>
+				<Stack
+					screenOptions={{
+						headerShown: false,
+					}}
+				>
+					<Stack.Screen
+						name='authentication/student/register'
+						options={{ title: 'Student Register' }}
+					/>
+				</Stack>
+			</View>
 		</View>
 	);
 };
