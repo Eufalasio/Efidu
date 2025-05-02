@@ -1,5 +1,7 @@
 services:
   backend:
+    depends_on:
+      - db_shift
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -11,15 +13,13 @@ services:
     working_dir: /app
     environment:
       - DJANGO_SETTINGS_MODULE=efidu.settings
-    command: ['python', 'manage.py', 'runserver', '0.0.0.0:4000']
-    depends_on:
-      - db_shift
+    command: ['sh', '-c', 'python manage.py makemigrations && python manage.py migrate && python manage.py runserver']
     env_file:
       - .env
 
   db_shift:
     container_name: db_shift
-    image: postgres:16
+    image: postgres:17.1-alpine
     restart: always
     ports:
       - 5432:5432
@@ -29,7 +29,12 @@ services:
       - POSTGRES_DB=${PG_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
-
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "admin", "-d", "db_shift"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
   adminer:
     image: adminer
     restart: always

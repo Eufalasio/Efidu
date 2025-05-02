@@ -3,6 +3,7 @@ FROM python:3.13-alpine
 
 WORKDIR /app
 
+RUN apk add --no-cache postgresql-dev gcc musl-dev
 # Copy root
 COPY requirements.txt .
 # Install dependencies
@@ -17,7 +18,7 @@ EXPOSE 4000
 
 ENV DJANGO_SETTINGS_MODULE=efidu.settings
 
-RUN python manage.py makemigrations && python manage.py migrate
+# RUN python manage.py makemigrations && python manage.py migrate
 
 # Command to run the application in development mode
 CMD ["python", "manage.py", "runserver", "0.0.0.0:4000"]
