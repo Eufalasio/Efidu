@@ -1,6 +1,8 @@
 import { View, Text } from 'react-native';
 import NavButton from '../../../../components/atoms/navButton';
 import InputField from '../../../../components/atoms/inputField';
+import { DatePicker } from '../../../../components/atoms/datePicker';
+import { Select } from '@/components/atoms/dropdownSelect';
 
 const RegisterUser = () => {
 	return (
@@ -10,7 +12,8 @@ const RegisterUser = () => {
 			<InputField type='password' placeholder={'Password'}></InputField>
 			<InputField type='password' placeholder={'Confirm password'}></InputField>
 			<InputField type='default' placeholder={'Full Name'}></InputField>
-			<InputField type='default' placeholder={'Date of birth'}></InputField>
+			<DatePicker />
+			<Select />
 		</View>
 	);
 };
