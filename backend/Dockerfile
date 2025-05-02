@@ -18,6 +18,3 @@ EXPOSE 4000
 ENV DJANGO_SETTINGS_MODULE=efidu.settings
 
 RUN python manage.py makemigrations && python manage.py migrate
-
-# Command to run the application in development mode
-CMD ["python", "manage.py", "runserver", "0.0.0.0:4000"]
