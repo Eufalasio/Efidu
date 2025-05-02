@@ -1,10 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	// NOTE: Update this to include the paths to all of your component files.
-	content: ['./app/**/*.{js,jsx,ts,tsx}'],
+	content: [
+		'./app/**/**/**/*.{js,jsx,tsx,jsx}',
+		'./components/**/*.{js,jsx,tsx,jsx}',
+	],
 	presets: [require('nativewind/preset')],
 	theme: {
-		extend: {},
+		extend: {
+			colors: require('./theme/colors'),
+		},
 	},
-	plugins: [],
+	plugins: ['prettier-plugin-tailwindcss'],
 };
