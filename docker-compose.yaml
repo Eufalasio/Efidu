@@ -1,7 +1,7 @@
 services:
   backend:
     depends_on:
-      - db_shift
+      - db_efidu
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -17,8 +17,8 @@ services:
     env_file:
       - .env
 
-  db_shift:
-    container_name: db_shift
+  db_efidu:
+    container_name: db_efidu
     image: postgres:17.1-alpine
     restart: always
     ports:
@@ -29,12 +29,6 @@ services:
       - POSTGRES_DB=${PG_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "admin", "-d", "db_shift"]
-      interval: 10s
-      retries: 5
-      start_period: 5s
-      timeout: 5s
   adminer:
     image: adminer
     restart: always
