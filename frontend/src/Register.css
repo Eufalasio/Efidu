@@ -13,16 +13,27 @@
     margin: 5px;
     border: 2px solid #ffff;
     border-radius: 16px;
-    background: hsla(0, 0%, 100%, 0.145); 
+    background: #b8f6fa;
+    color: #213547;
 }
+
+.formInput-student{
+    border: 2px solid #45bbc4;
+    background: #94f8ffbc
+  }
+  .formInput-teacher{
+    border: 2px solid #ff3838;
+    background: #fba2a2;
+
+  }
 .formInput-student:focus{
     outline: none;
     border: 2px solid #5686a8;
-    background-color: #131313;
+    background-color: #7ce4ec;
   }
 .formInput-teacher:focus{
     outline: none;
-    border: 2px solid #af2d2d;
-    background-color: #131313;
+    border: 2px solid #ab2222;
+    background-color: #ff8181;
   }
 

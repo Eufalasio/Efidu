@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+.sliding-cover{
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: #2A7B9B;
+  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(56, 178, 194, 1) 50%, rgba(0, 234, 255, 1) 100%);
+  animation: slideback 1s ease-in-out forwards;
+}
+
+.sliding-cover-active{
+  animation: slide 1s ease-in-out forwards;
+}
+
+.sliding-cover p{
+  font-family: 'Jersey 10';
+  color: #ffff;
+  font-size: 200px;
+  cursor: pointer;
+}
+
+@keyframes slide{
+  from{
+    margin-left: 0;
+    background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(56, 178, 194, 1) 50%, rgba(0, 234, 255, 1) 100%);}
+  to{
+    margin-left:50%;
+    background: #75120e;
+    background: linear-gradient(270deg, rgba(117, 18, 14, 1) 0%, rgba(237, 19, 19, 1) 67%, rgba(255, 81, 0, 1) 100%);
+  }
+}
+
+@keyframes slideback{
+  from{
+    margin-left:50%;
+    background: #75120e;
+    background: linear-gradient(270deg, rgba(117, 18, 14, 1) 0%, rgba(237, 19, 19, 1) 67%, rgba(255, 81, 0, 1) 100%);
+  }
+  to{
+    margin-left:0;
+    background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(56, 178, 194, 1) 50%, rgba(0, 234, 255, 1) 100%);}
+}
