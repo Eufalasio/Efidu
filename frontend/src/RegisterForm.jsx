@@ -30,14 +30,14 @@ const RegisterForm = ({role}) => {
               <br/>
 
               <select className={`formInput ` + formInput} name="gender" id="gender" required>
-                <option value="" disabled selected>Gender</option>
+                <option value="" disabled defaultValue={""}>Gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="O">Other</option>  
               </select>
               {role === 'student' && (
                 <select className={`formInput ` + formInput} name="schoolYear" id="schoolYear" required>
-                  <option value="" disabled selected>School Year</option>
+                  <option value="" disabled defaultValue={""}>School Year</option>
                   <option value="1">9th</option>
                   <option value="2">10th</option>
                   <option value="3">11th</option>

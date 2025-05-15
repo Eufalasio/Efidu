@@ -8,15 +8,15 @@
   left: 0;
   height: 100%;
   width: 50%;
-  background: #2A7B9B;
-  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(56, 178, 194, 1) 50%, rgba(0, 234, 255, 1) 100%);
-  animation: slideback 1s ease-in-out forwards;
+  --relative-margin: 0;
+  --gradient-angle: 90deg;
+  --main-color1: rgba(42, 123, 155, 1) 0%;
+  --main-color2: rgba(56, 178, 194, 1) 50%;
+  --main-color3:  rgba(0, 234, 255, 1) 100%;
+  margin-left: var(--relative-margin);
+  background: linear-gradient(var(--gradient-angle), var(--main-color1), var(--main-color2), var(--main-color3));
+  transition: margin-left 1s;
 }
-
-.sliding-cover-active{
-  animation: slide 1s ease-in-out forwards;
-}
-
 .sliding-cover p{
   font-family: 'Jersey 10';
   color: #ffff;
