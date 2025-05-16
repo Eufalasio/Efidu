@@ -1,5 +1,4 @@
-export default function gradientAnimation(currentGradient, targetGradient){
-    let duration = 8000;
+export default function gradientAnimation(currentGradient, targetGradient, duration){
     const start = performance.now();
     const interpolate = (startRGB, endRGB, t) =>
         startRGB.map((startVal, i) => Math.round(startVal + (endRGB[i] - startVal) * t));

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 import "./SlidingCover.css"
 import gradientAnimation from './slidingCoverScript';
 class Gradient {
@@ -24,18 +24,19 @@ class Gradient {
 }
 const SlidingCover = () => {
     const [slider, setSlider] = useState(true);
-    let currentGradient = new Gradient([42, 123, 155], [56, 178, 194], [0, 234, 255], 90);
+    const currentGradientRef = useRef(
+        new Gradient([42, 123, 155], [56, 178, 194], [0, 234, 255], 90)
+    );
     const handleClick = () => {
         
         setSlider(!slider);
         let studentGradient = new Gradient([42, 123, 155], [56, 178, 194], [0, 234, 255], 90);
         let teacherGradient = new Gradient([117, 18, 14],[237, 19, 19],[255, 81, 0], 270);
-
         if(!slider){
-            gradientAnimation(currentGradient, studentGradient);
+            gradientAnimation(currentGradientRef.current, studentGradient, 1000);
         }
         else{
-            gradientAnimation(currentGradient, teacherGradient)
+            gradientAnimation(currentGradientRef.current, teacherGradient, 1000);
         }
 
 
